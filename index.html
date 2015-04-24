@@ -60,7 +60,7 @@
 							<img data-src="img/hero-empirejs.png" alt="Down arrow">
 						</a>
 					</section>
-					<section>
+					<section data-background="#dddddd">
 						<img data-src="img/me.png" alt="Down arrow">
 					</section>
 
@@ -70,11 +70,11 @@
 
 				</section>
 
-				<section>
+				<section data-background="#dddddd">
 					<img data-src="img/taxi.png" alt="Down arrow">
 				</section>
 
-				<section>
+				<section data-background="#dddddd">
 					<img data-src="img/human.png" alt="Down arrow">
 					<img data-src="img/robot.png" alt="Down arrow">
 				</section>
@@ -132,7 +132,7 @@
 					</section>
 				</section>
 
-				<section id="transitions">
+				<section data-background="#4d7e65" id="transitions">
 			<!-- 		<h2>Transition Styles</h2>
 					<p>
 						You can select from different transitions, like: <br> -->
@@ -254,65 +254,170 @@ TaskManager.prototype.move = function (direction) {
 				</section>
 
 				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
+					<center>
+					<video width="1100" controls>
+				  <source src="videos/FPV_CODE.mp4" type="video/mp4">
+				</video>
+			</center>
 				</section>
 
 				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							<tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							<tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							<tr>
-						</tbody>
-					</table>
+					<p>thank you</p>
+				</section>
+
+				<section data-transition="slide"  data-background="img/project2.png" data-background-transition="zoom">
+						<h2>Build It!</h2>
+						<a href="http://karenpeng.github.io/myvoxel/">live demo</a>
 				</section>
 
 				<section>
-					<h2>Clever Quotes</h2>
-					<p>
+					<p>Block by Block???<p>
+				</section>
+
+				<section>
+					<h2>Generator</h2>
+	<!-- 				<p>
 						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
 						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
+					</p> -->
 					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
+						&ldquo;Generators are functions which can be exited and later re-entered. Their context (variable bindings) will be saved across re-entrances.&rdquo;
+					<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp--- MDN
 					</blockquote>
 				</section>
 
 				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
+					<pre><code data-trim contenteditable>
+function* idMaker(){
+  for(var i = 0; i < 3; i++)
+    yield i;
+}
+
+var gen = idMaker();
+
+console.log(gen.next()); // Object {value: 0, done: false}
+console.log(gen.next()); // Object {value: 1, done: false}
+console.log(gen.next()); // Object {value: 2, done: false}
+console.log(gen.next()); // Object {value: undefined, done: true}
+					</code></pre>
 				</section>
 
 				<section>
+					<pre><code data-trim contenteditable>
+for(var i = 0; i < 6; i++){
+ addThing(i, 0, 0);
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<pre><code data-trim contenteditable>
+function* wwwaaattt(num, pos){
+  for(var i = 0; i < 6; i++){
+    yield addThingAndHighlight(num, pos, 1, i, 0, 0);
+  }
+}
+					</code></pre>
+				</section>
+
+
+				<section>
+					<pre><code data-trim contenteditable>
+var gen = wwwaaattt(clickTimes, startPosition);
+if(frameCount % interval === 0 && evaled){
+  runGenerator(gen);
+}
+					</code></pre>
+				</section>
+
+				<section data-background="#dddddd">
+<img src="img/humm.gif">
+				</section>
+
+				<section>
+					<pre><code data-trim contenteditable>
+function* anotherGenerator(i) {
+  yield i + 1;
+}
+
+function* generator(i){
+  yield i;
+  yield* anotherGenerator(i);
+}
+
+var gen = generator(10);
+
+console.log(gen.next().value); // 10
+console.log(gen.next().value); // 11
+console.log(gen.next().value); // undefined
+					</code></pre>
+				</section>
+
+<section>
+
+					<pre><code data-trim contenteditable>
+function addTree(x, y, z, counter){
+ if ( counter > 6) return;
+ addThing(x, y, z);
+ //add root
+ var c = counter + 1;
+ //add left sub tree
+ addTree(x - 1, y + 1, z - 1, c);
+ //add right sub tree
+ addTree(x + 1, y + 1, z + 1, c);
+}
+
+addTree(0,0,0,0);
+					</code></pre>
+				</section>
+
+<section>
+<pre><code data-trim contenteditable>
+function* wwwaaattt(num, pos){
+	function*  addTree(x, y, z, counter){
+	 if ( counter > 6) return;
+		 yield addThingAndHighlight(num, pos, 2, x, y, z);
+		 //add root
+		 var c = counter + 1;
+		 //add left sub tree
+		 yield* addTree(x - 1, y + 1, z - 1, c);
+		 //add right sub tree
+		 yield* addTree(x + 1, y + 1, z + 1, c);
+	}
+	yield* addTree(0,0,0,0);
+}
+					</code></pre>
+				</section>
+</section>
+
+<section data-background="#dddddd">
+	<img src="img/ross.gif">
+</section>
+
+
+<section data-transition="slide"  data-background="img/project2.png" data-background-transition="zoom">
+			<a href="http://karenpeng.github.io/myvoxel/">what could i build?</a>
+</section>
+
+				<section>
+					<p>
+						<p><a href="http://twitter.com/KarenPunkPunk">@KarenPunkPunk</a></p>
+						<p><a href="http://karenlabs.com">karenlabs.com</a></p>
+						</medium>
+					</p>
+					<img src="img/onemore.gif">
+				</section>
+
+				<section>
+					<p>
+						<p><a href="http://twitter.com/KarenPunkPunk">@KarenPunkPunk</a></p>
+						<p><a href="http://karenlabs.com">karenlabs.com</a></p>
+						</medium>
+					</p>
+					<h1>Hire Me</h1>
+				</section>
+
+<!-- 				<section>
 					<h2>Speaker View</h2>
 					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
 					<p>Press the <em>S</em> key to try it out.</p>
@@ -365,14 +470,14 @@ Reveal.addEventListener( 'customevent', function() {
 						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
 						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
 					</ul>
-				</section>
+				</section> -->
 
 				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
+					<h1>THANK YOU <3</h1>
+<!-- 					<p>
 						- <a href="http://slides.com">Try the online editor</a> <br>
 						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
+					</p> -->
 				</section>
 
 			</div>
